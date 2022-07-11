@@ -5,13 +5,24 @@ function computerPlay() {
     
     // assign to choice
     if (computerChoice == 0) { 
-        return "rock"
+        return "Rock"
     } else if (computerChoice == 1){
-        return "paper"
+        return "Paper"
     } else {
-        return "scissors"
+        return "Scissors"
     }
 
 };
 
-console.log(computerPlay());
+function playerPlay(){
+    return prompt("ROCK PAPER or SCISSORS?")
+}
+
+function capitalize(string) {
+    let newstring = []
+    for (let i =0; i < string.length;i++){
+        (i == 0) ? (newstring.push(string[i].toUpperCase())) : (newstring.push(string[i].toLowerCase()));
+    }
+    return newstring.join("");
+}
+
