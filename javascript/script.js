@@ -1,7 +1,7 @@
 function computerPlay() {
     
     // random number 0 - 2
-    let computerChoice = Math.floor((Math.random()*100))%3;
+    let computerChoice = Math.floor((Math.random()*3));
     
     // assign to choice
     if (computerChoice == 0) { 
@@ -34,40 +34,75 @@ function playRound(playerchoice, computerchoice){
     if (playerchoice == "Rock"){
         switch(computerchoice) {
             case "Rock":
-                return "It's a tie"
+                console.log("It's a tie")
             break;
             case "Scissors":
-                return ("You Win! " + playerchoice + "beats " + computerchoice)
+                console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                playerwin += 1
             break;
             case "Paper":
-                return ("You Lose! " + computerchoice + " beats " + playerchoice)
+                console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                computerwin += 1
         }
     }
     else if (playerchoice == "Paper"){
         switch(computerchoice) {
             case "Paper":
-                return "It's a tie"
+                console.log("It's a tie this round")
             break;
             case "Rock":
-                return ("You Win! " + playerchoice + "beats " + computerchoice)
+                console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                playerwin += 1
             break;
             case "Scissors":
-                return ("You Lose! " + computerchoice + " beats " + playerchoice)
+                console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                computerwin += 1
         }
     }
     else if (playerchoice == "Scissors"){
         switch(computerchoice) {
             case "Scissors":
-                return"It's a tie"
+                console.log("It's a tie this round")
             break;
             case "Paper":
-                return ("You Win! " + playerchoice + "beats " + computerchoice)
+                console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                playerwin += 1
             break;
             case "Rock":
-                return ("You Lose! " + computerchoice + " beats " + playerchoice)
+                console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                computerwin += 1
         }
     }
 
 }   
 
-console.log(playRound(playerPlay(),computerPlay()))
+
+function playGame(){
+
+    for (let i = 0; i<5; i++){
+
+            playRound(playerPlay(),computerPlay())
+            gamesplayed += 1
+            console.log("TOTAL AFTER ROUND "+ gamesplayed)
+            console.log("player wins: " + playerwin)
+            console.log("computer wins: " + computerwin)
+
+    }
+
+    if (playerwin == computerwin){
+        console.log("The game ends in a draw!")
+    } 
+    else if (playerwin > computerwin){
+        console.log("You win the game!")
+    } 
+    else if (computerwin >playerwin){
+        console.log("You lose the game")
+    }
+
+}
+
+var playerwin = 0;
+var computerwin = 0;
+var gamesplayed = 0;
+
+console.log(playGame())
