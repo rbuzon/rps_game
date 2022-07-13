@@ -28,12 +28,13 @@ function capitalize(string) {
 
 function playRound(playerchoice, computerchoice){
 
-    playerchoice = capitalize(playerchoice)
+//    playerchoice = capitalize(playerchoice)
 
     if (playerchoice == "Rock"){
         switch(computerchoice) {
             case "Rock":
-                console.log("It's a tie")
+                console.log("It's a tie this round.")
+
             break;
             case "Scissors":
                 console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
@@ -104,3 +105,18 @@ var computerwin = 0;
 var gamesplayed = 0;
 
 //console.log(playGame())
+
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach((button) => {
+    button.addEventListener('click',(e)=>{
+        makeSelection(e)
+    })
+})
+
+function makeSelection(e){
+    playerSelection = e.target.className
+    playRound(playerSelection,computerPlay())
+}
+
+resultsdisplay = document.querySelector('.results')

@@ -1,9 +1,14 @@
+* {
+    max-width: 100%;
+    min-height: 100%;
+}
+
 body {
 
     display: flex;
     flex-direction: column;
     background-color: #808080;
-    min-height: 100px;
+    min-height: auto;
     justify-content: center;
 
 }
@@ -15,3 +20,9 @@ div {
     padding: 20px;
 
 }
+
+.body {
+    display: flex;
+    justify-content: center;
+}
+
