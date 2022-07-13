@@ -26,7 +26,6 @@ function capitalize(string) {
     return newstring.join("");
 }
 
-
 function playRound(playerchoice, computerchoice){
 
     playerchoice = capitalize(playerchoice)
@@ -76,7 +75,6 @@ function playRound(playerchoice, computerchoice){
 
 }   
 
-
 function playGame(){
 
     for (let i = 0; i<5; i++){
@@ -105,4 +103,4 @@ var playerwin = 0;
 var computerwin = 0;
 var gamesplayed = 0;
 
-console.log(playGame())
+//console.log(playGame())
