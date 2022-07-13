@@ -34,7 +34,7 @@ function playRound(playerchoice, computerchoice){
         switch(computerchoice) {
             case "Rock":
                 console.log("It's a tie this round.")
-
+                
             break;
             case "Scissors":
                 console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
@@ -117,6 +117,15 @@ buttons.forEach((button) => {
 function makeSelection(e){
     playerSelection = e.target.className
     playRound(playerSelection,computerPlay())
+    
+    playerscore.textContent = playerwin
+    computerscore.textContent = computerwin
+
 }
 
-resultsdisplay = document.querySelector('.results')
+const resultsdisplay = document.querySelector('.results')
+const playerscore = document.querySelector('.playerscore')
+const computerscore = document.querySelector('.computerscore')
+
+
+resultsdisplay.textContent = "it changes at least"
