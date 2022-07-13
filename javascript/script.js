@@ -34,14 +34,16 @@ function playRound(playerchoice, computerchoice){
         switch(computerchoice) {
             case "Rock":
                 console.log("It's a tie this round.")
-                
+                result = "Its a tie this round"
             break;
             case "Scissors":
                 console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                result = ("You Win this round! " + playerchoice + " beats " + computerchoice)
                 playerwin += 1
             break;
             case "Paper":
                 console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                result = ("You Lose this round! " + computerchoice + " beats " + playerchoice)
                 computerwin += 1
         }
     }
@@ -49,28 +51,39 @@ function playRound(playerchoice, computerchoice){
         switch(computerchoice) {
             case "Paper":
                 console.log("It's a tie this round")
+                result = "Its a tie this round"
             break;
             case "Rock":
                 console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                result = ("You Win this round! " + playerchoice + " beats " + computerchoice)
                 playerwin += 1
+
             break;
             case "Scissors":
                 console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                result = ("You Lose this round! " + computerchoice + " beats " + playerchoice)
                 computerwin += 1
+
         }
     }
     else if (playerchoice == "Scissors"){
         switch(computerchoice) {
             case "Scissors":
                 console.log("It's a tie this round")
+                result = "Its a tie this round"
+
             break;
             case "Paper":
                 console.log("You Win this round! " + playerchoice + " beats " + computerchoice)
+                result = ("You Win this round! " + playerchoice + " beats " + computerchoice)
                 playerwin += 1
+
             break;
             case "Rock":
                 console.log("You Lose this round! " + computerchoice + " beats " + playerchoice)
+                result = ("You Lose this round! " + computerchoice + " beats " + playerchoice)
                 computerwin += 1
+
         }
     }
 
@@ -103,8 +116,7 @@ function playGame(){
 var playerwin = 0;
 var computerwin = 0;
 var gamesplayed = 0;
-
-//console.log(playGame())
+var result = "Good Luck"
 
 const buttons = document.querySelectorAll('button')
 
@@ -117,15 +129,24 @@ buttons.forEach((button) => {
 function makeSelection(e){
     playerSelection = e.target.className
     playRound(playerSelection,computerPlay())
-    
+
+    gamesplayed += 1
+
+    resultsdisplay.textContent = result
+
     playerscore.textContent = playerwin
     computerscore.textContent = computerwin
+
+    gamesplayeddisplay = "GAMES PLAYED : " + gamesplayed
+    gamecount.textContent = gamesplayeddisplay
+
 
 }
 
 const resultsdisplay = document.querySelector('.results')
 const playerscore = document.querySelector('.playerscore')
 const computerscore = document.querySelector('.computerscore')
+const gamecount = document.querySelector('.gamenumber')
 
 
-resultsdisplay.textContent = "it changes at least"
+// resultsdisplay.textContent = "it changes at least"
